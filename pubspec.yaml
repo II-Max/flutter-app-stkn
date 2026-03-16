@@ -1,0 +1,33 @@
+name: stkn
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+# ĐÂY LÀ PHẦN BẠN ĐANG THIẾU:
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Các thư viện Smart Farm của bạn
+  firebase_core: ^3.0.0
+  firebase_database: ^11.0.0
+  fl_chart: ^0.66.0
+  shared_preferences: ^2.2.0
+  intl: ^0.19.0
+  
+  # Icon mặc định
+  cupertino_icons: ^1.0.8
+  connectivity_plus: ^7.0.0
+  google_fonts: ^8.0.1
+  firebase_auth: ^5.7.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
