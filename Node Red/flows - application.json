@@ -1,0 +1,527 @@
+[
+    {
+        "id": "b14b4237a2d19082",
+        "type": "tab",
+        "label": "FARM SYSTEM (LAYERED)",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a659a778d8253130",
+        "type": "group",
+        "z": "b14b4237a2d19082",
+        "name": "TẦNG 1: INPUT (NHẬN TÍN HIỆU WEB)",
+        "style": {
+            "stroke": "#92e0a4",
+            "fill": "#e3fcec",
+            "label": true,
+            "color": "#366e44"
+        },
+        "nodes": [
+            "42c77d3ab07f722c",
+            "ae55a9047ccd8c6e",
+            "a1653f596ea023c1",
+            "884e61e7cf25e046",
+            "62410b0f4eadd444",
+            "5776822c4f2236f0",
+            "2681405ac1e83f5c",
+            "4310b34473ad1533"
+        ],
+        "x": 34,
+        "y": 39,
+        "w": 442,
+        "h": 262
+    },
+    {
+        "id": "60fc2af6b9c8eadb",
+        "type": "group",
+        "z": "b14b4237a2d19082",
+        "name": "TẦNG 2: LOGIC (XỬ LÝ TRUNG TÂM)",
+        "style": {
+            "stroke": "#f3b567",
+            "fill": "#fff3d6",
+            "label": true,
+            "color": "#8f5703"
+        },
+        "nodes": [
+            "c537408faf9b830d",
+            "8493c3bea11b23b5",
+            "fc2b947206875bf7",
+            "7a121fa17b944b05",
+            "cdafb282f96617fb",
+            "ea12c00734485c51",
+            "730b43870b28335b",
+            "4669c437a4a50361",
+            "e68aee0a1e6d7439"
+        ],
+        "x": 34,
+        "y": 339,
+        "w": 422,
+        "h": 202
+    },
+    {
+        "id": "1ca74ff8ccdf65b2",
+        "type": "group",
+        "z": "b14b4237a2d19082",
+        "name": "TẦNG 3: OUTPUT (ĐIỀU KHIỂN PLC S7)",
+        "style": {
+            "stroke": "#ff9999",
+            "fill": "#ffcccc",
+            "label": true,
+            "color": "#7a1a1a"
+        },
+        "nodes": [
+            "6f0b39f885d7f783",
+            "822420c925275f5e",
+            "2f9cb4d5452b56c4",
+            "8ea94617a69dbe88",
+            "0edef7e467798e78",
+            "e56e9f0fe959948c"
+        ],
+        "x": 34,
+        "y": 579,
+        "w": 412,
+        "h": 202
+    },
+    {
+        "id": "42c77d3ab07f722c",
+        "type": "firebase-in",
+        "z": "b14b4237a2d19082",
+        "g": "a659a778d8253130",
+        "name": "Web: Bơm",
+        "constraints": {},
+        "database": "config_firebase_farm_sci",
+        "inputs": 0,
+        "listenerType": "value",
+        "outputType": "auto",
+        "passThrough": false,
+        "path": "smart_farm/control/may_bom",
+        "pathType": "str",
+        "useConstraints": false,
+        "x": 120,
+        "y": 80,
+        "wires": [
+            [
+                "62410b0f4eadd444"
+            ]
+        ]
+    },
+    {
+        "id": "ae55a9047ccd8c6e",
+        "type": "firebase-in",
+        "z": "b14b4237a2d19082",
+        "g": "a659a778d8253130",
+        "name": "Web: Đèn",
+        "constraints": {},
+        "database": "config_firebase_farm_sci",
+        "inputs": 0,
+        "listenerType": "value",
+        "outputType": "auto",
+        "passThrough": false,
+        "path": "smart_farm/control/den_grow",
+        "pathType": "str",
+        "useConstraints": false,
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "5776822c4f2236f0"
+            ]
+        ]
+    },
+    {
+        "id": "a1653f596ea023c1",
+        "type": "firebase-in",
+        "z": "b14b4237a2d19082",
+        "g": "a659a778d8253130",
+        "name": "Web: Quạt",
+        "constraints": {},
+        "database": "config_firebase_farm_sci",
+        "inputs": 0,
+        "listenerType": "value",
+        "outputType": "auto",
+        "passThrough": false,
+        "path": "smart_farm/control/quat_gio",
+        "pathType": "str",
+        "useConstraints": false,
+        "x": 120,
+        "y": 200,
+        "wires": [
+            [
+                "2681405ac1e83f5c"
+            ]
+        ]
+    },
+    {
+        "id": "884e61e7cf25e046",
+        "type": "firebase-in",
+        "z": "b14b4237a2d19082",
+        "g": "a659a778d8253130",
+        "name": "Web: Chế Độ",
+        "constraints": {},
+        "database": "config_firebase_farm_sci",
+        "inputs": 0,
+        "listenerType": "value",
+        "outputType": "auto",
+        "passThrough": false,
+        "path": "smart_farm/control/che_do",
+        "pathType": "str",
+        "useConstraints": false,
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "4310b34473ad1533"
+            ]
+        ]
+    },
+    {
+        "id": "62410b0f4eadd444",
+        "type": "link out",
+        "z": "b14b4237a2d19082",
+        "g": "a659a778d8253130",
+        "name": "RAW_PUMP",
+        "mode": "link",
+        "links": [
+            "c537408faf9b830d"
+        ],
+        "x": 355,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "5776822c4f2236f0",
+        "type": "link out",
+        "z": "b14b4237a2d19082",
+        "g": "a659a778d8253130",
+        "name": "RAW_LIGHT",
+        "mode": "link",
+        "links": [
+            "8493c3bea11b23b5"
+        ],
+        "x": 355,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "2681405ac1e83f5c",
+        "type": "link out",
+        "z": "b14b4237a2d19082",
+        "g": "a659a778d8253130",
+        "name": "RAW_FAN",
+        "mode": "link",
+        "links": [
+            "fc2b947206875bf7"
+        ],
+        "x": 355,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "4310b34473ad1533",
+        "type": "change",
+        "z": "b14b4237a2d19082",
+        "g": "a659a778d8253130",
+        "name": "Lưu Mode vào RAM",
+        "rules": [
+            {
+                "t": "set",
+                "p": "farm_mode",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c537408faf9b830d",
+        "type": "link in",
+        "z": "b14b4237a2d19082",
+        "g": "60fc2af6b9c8eadb",
+        "name": "IN_LOGIC_PUMP",
+        "links": [
+            "62410b0f4eadd444"
+        ],
+        "x": 75,
+        "y": 380,
+        "wires": [
+            [
+                "7a121fa17b944b05"
+            ]
+        ]
+    },
+    {
+        "id": "8493c3bea11b23b5",
+        "type": "link in",
+        "z": "b14b4237a2d19082",
+        "g": "60fc2af6b9c8eadb",
+        "name": "IN_LOGIC_LIGHT",
+        "links": [
+            "5776822c4f2236f0"
+        ],
+        "x": 75,
+        "y": 440,
+        "wires": [
+            [
+                "cdafb282f96617fb"
+            ]
+        ]
+    },
+    {
+        "id": "fc2b947206875bf7",
+        "type": "link in",
+        "z": "b14b4237a2d19082",
+        "g": "60fc2af6b9c8eadb",
+        "name": "IN_LOGIC_FAN",
+        "links": [
+            "2681405ac1e83f5c"
+        ],
+        "x": 75,
+        "y": 500,
+        "wires": [
+            [
+                "ea12c00734485c51"
+            ]
+        ]
+    },
+    {
+        "id": "7a121fa17b944b05",
+        "type": "function",
+        "z": "b14b4237a2d19082",
+        "g": "60fc2af6b9c8eadb",
+        "name": "Gate: Check Mode",
+        "func": "var mode = global.get(\"farm_mode\") || \"MANUAL\";\n// Chỉ cho qua nếu là MANUAL\nif (mode === \"MANUAL\") {\n    return msg;\n} else {\n    return null;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 380,
+        "wires": [
+            [
+                "730b43870b28335b"
+            ]
+        ]
+    },
+    {
+        "id": "cdafb282f96617fb",
+        "type": "function",
+        "z": "b14b4237a2d19082",
+        "g": "60fc2af6b9c8eadb",
+        "name": "Gate: Check Mode",
+        "func": "var mode = global.get(\"farm_mode\") || \"MANUAL\";\nif (mode === \"MANUAL\") {\n    return msg;\n} else {\n    return null;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 440,
+        "wires": [
+            [
+                "4669c437a4a50361"
+            ]
+        ]
+    },
+    {
+        "id": "ea12c00734485c51",
+        "type": "function",
+        "z": "b14b4237a2d19082",
+        "g": "60fc2af6b9c8eadb",
+        "name": "Gate: Check Mode",
+        "func": "var mode = global.get(\"farm_mode\") || \"MANUAL\";\nif (mode === \"MANUAL\") {\n    return msg;\n} else {\n    return null;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 500,
+        "wires": [
+            [
+                "e68aee0a1e6d7439"
+            ]
+        ]
+    },
+    {
+        "id": "730b43870b28335b",
+        "type": "link out",
+        "z": "b14b4237a2d19082",
+        "g": "60fc2af6b9c8eadb",
+        "name": "FINAL_PUMP",
+        "mode": "link",
+        "links": [
+            "6f0b39f885d7f783"
+        ],
+        "x": 415,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "4669c437a4a50361",
+        "type": "link out",
+        "z": "b14b4237a2d19082",
+        "g": "60fc2af6b9c8eadb",
+        "name": "FINAL_LIGHT",
+        "mode": "link",
+        "links": [
+            "822420c925275f5e"
+        ],
+        "x": 415,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "e68aee0a1e6d7439",
+        "type": "link out",
+        "z": "b14b4237a2d19082",
+        "g": "60fc2af6b9c8eadb",
+        "name": "FINAL_FAN",
+        "mode": "link",
+        "links": [
+            "2f9cb4d5452b56c4"
+        ],
+        "x": 415,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "6f0b39f885d7f783",
+        "type": "link in",
+        "z": "b14b4237a2d19082",
+        "g": "1ca74ff8ccdf65b2",
+        "name": "IN_PLC_PUMP",
+        "links": [
+            "730b43870b28335b"
+        ],
+        "x": 75,
+        "y": 620,
+        "wires": [
+            [
+                "8ea94617a69dbe88"
+            ]
+        ]
+    },
+    {
+        "id": "822420c925275f5e",
+        "type": "link in",
+        "z": "b14b4237a2d19082",
+        "g": "1ca74ff8ccdf65b2",
+        "name": "IN_PLC_LIGHT",
+        "links": [
+            "4669c437a4a50361"
+        ],
+        "x": 75,
+        "y": 680,
+        "wires": [
+            [
+                "0edef7e467798e78"
+            ]
+        ]
+    },
+    {
+        "id": "2f9cb4d5452b56c4",
+        "type": "link in",
+        "z": "b14b4237a2d19082",
+        "g": "1ca74ff8ccdf65b2",
+        "name": "IN_PLC_FAN",
+        "links": [
+            "e68aee0a1e6d7439"
+        ],
+        "x": 75,
+        "y": 740,
+        "wires": [
+            [
+                "e56e9f0fe959948c"
+            ]
+        ]
+    },
+    {
+        "id": "8ea94617a69dbe88",
+        "type": "debug",
+        "z": "b14b4237a2d19082",
+        "g": "1ca74ff8ccdf65b2",
+        "name": "[PLC] BƠM Q0.0",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "0edef7e467798e78",
+        "type": "debug",
+        "z": "b14b4237a2d19082",
+        "g": "1ca74ff8ccdf65b2",
+        "name": "[PLC] ĐÈN Q0.1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "e56e9f0fe959948c",
+        "type": "debug",
+        "z": "b14b4237a2d19082",
+        "g": "1ca74ff8ccdf65b2",
+        "name": "[PLC] QUẠT Q0.2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "config_firebase_farm_sci",
+        "type": "firebase-config",
+        "name": "FARM_DB",
+        "authType": "anonymous",
+        "claims": {},
+        "createUser": false,
+        "status": {
+            "firestore": false,
+            "storage": false
+        },
+        "useClaims": false,
+        "info": "const firebaseConfig = {\r\n    apiKey: \"AIzaSyC0DNa6hLkawASTmQy2AVgTOSmQk7fh5mw\",\r\n    authDomain: \"khkt2026-gtsv2.firebaseapp.com\",\r\n    databaseURL: \"https://khkt2026-gtsv2-default-rtdb.firebaseio.com\",\r\n    projectId: \"khkt2026-gtsv2\",\r\n    storageBucket: \"khkt2026-gtsv2.firebasestorage.app\",\r\n    messagingSenderId: \"884917510550\",\r\n    appId: \"1:884917510550:web:3b238f8ad5f3aa6c303db7\",\r\n    measurementId: \"G-2QHTEVBQ8W\"\r\n};"
+    },
+    {
+        "id": "5407f2f2c9a2b484",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@gogovega/node-red-contrib-firebase-realtime-database": "0.8.2",
+            "@gogovega/firebase-config-node": "0.3.2"
+        }
+    }
+]
