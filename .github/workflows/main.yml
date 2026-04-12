@@ -1,0 +1,41 @@
+name: Build iOS IPA (Unsigned)
+
+on:
+  workflow_dispatch: # Cho phép bạn bấm nút Run thủ công trên GitHub
+
+jobs:
+  build_ios:
+    name: Build Flutter iOS
+    runs-on: macos-latest # Bắt buộc phải dùng máy Mac ảo
+    
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # Tắt cảnh báo Node.js màu vàng
+
+    steps:
+      - name: Lấy mã nguồn (Checkout)
+        uses: actions/checkout@v4
+
+      - name: Thiết lập môi trường Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable' # Sử dụng phiên bản Flutter ổn định nhất
+          cache: true
+
+      - name: Cài đặt thư viện (Dependencies)
+        run: flutter pub get
+
+      - name: Build ứng dụng iOS (Bỏ qua Code Signing)
+        run: flutter build ios --release --no-codesign
+
+      - name: Đóng gói thành định dạng .ipa chuẩn
+        run: |
+          mkdir -p Payload
+          mv build/ios/iphoneos/Runner.app Payload/
+          zip -r -9 FutsFarm_iOS.ipa Payload
+
+      - name: Xuất file IPA để tải về
+        uses: actions/upload-artifact@v4
+        with:
+          name: FutsFarm-iOS-App
+          path: FutsFarm_iOS.ipa
+          retention-days: 3 # File sẽ tự xóa sau 3 ngày để tiết kiệm dung lượng
